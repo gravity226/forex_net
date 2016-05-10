@@ -8,7 +8,7 @@ I am working on this project to get a better understanding of neural nets.  The 
  - Successfully implemented multiprocessing to cut down on creation time (still took about 4 hours on a 40 core machine)
  - Created over 272,000 images and their corresponding vectors; each containing 5 ticks on an hourly scale from 2001 to 2015.
 
- ![forex 5 ticks](https://raw.githubusercontent.com/gravity226/forex_net/master/imgs/EURUSD_20010103_00-00-00.png "Forex 5 ticks")
+ ![forex 5 ticks](https://raw.githubusercontent.com/gravity226/forex_net/master/imgs/EURUSD_20010103_00-00-00.png =120x160)
 
 ### Building the Net
  - Transferred the vectors to a GPU AWS instance to begin training the net.
@@ -25,4 +25,3 @@ I am working on this project to get a better understanding of neural nets.  The 
  - Only include images from prime trading hours.
  - Only graph closing ticks, or some other variety.
  - Change number of ticks being graphed.
- 
