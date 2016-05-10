@@ -73,7 +73,7 @@ def primes_parallel():
     # primes = [p for p in itertools.compress(number_range, output)]
     # print len(primes), primes[:10], primes[-10:]
 
-    pool = multiprocessing.Pool(40)
+    pool = multiprocessing.Pool(32)
     pool.Process.daemon = True
 
     # num_times = 2
