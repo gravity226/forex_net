@@ -37,7 +37,7 @@ def check_prime(n): # n = lower range
 
     reshape_vect = []   # Need it in shape = (n, 3, R, G, B) for net
     temp_colors = []
-    for color in xrange(3):   # need to change into a shape = (4, 120, 160); 4 = (r, g, b, alpha)
+    for color in xrange(3):   # need to change into a shape = (3, 120, 160); 3 = (r, g, b)
         temp_rows = []
         for row in resize_vect:     # row.shape = (160, 4)
             temp_cols = []
