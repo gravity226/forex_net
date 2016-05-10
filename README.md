@@ -7,7 +7,8 @@ I am working on this project to get a better understanding of neural nets.  The 
  - Launched an AWS instance to created the images and vectors.
  - Successfully implemented multiprocessing to cut down on creation time (still took about 4 hours on a 40 core machine)
  - Created over 272,000 images and their corresponding vectors; each containing 5 ticks on an hourly scale from 2001 to 2015.
-<img src="https://raw.githubusercontent.com/gravity226/forex_net/master/imgs/EURUSD_20010103_00-00-00.png" width="160" height="120">
+
+<img src="https://raw.githubusercontent.com/gravity226/forex_net/master/imgs/EURUSD_20010103_00-00-00.png" width="320" height="240">
 
 ### Building the Net
  - Transferred the vectors to a GPU AWS instance to begin training the net.
