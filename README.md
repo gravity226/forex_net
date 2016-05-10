@@ -8,6 +8,8 @@ I am working on this project to get a better understanding of neural nets.  The 
  - Successfully implemented multiprocessing to cut down on creation time (still took about 4 hours on a 40 core machine)
  - Created over 272,000 images and their corresponding vectors; each containing 5 ticks on an hourly scale from 2001 to 2015.
 
+ ![forex 5 ticks](https://raw.githubusercontent.com/gravity226/forex_net/master/imgs/EURUSD_20010103_00-00-00.png "Forex 5 ticks")
+
 ### Building the Net
  - Transferred the vectors to a GPU AWS instance to begin training the net.
  - Copied the net framework from the cifar10_cnn Keras Net (this example utilizes RGB color)
@@ -18,3 +20,9 @@ I am working on this project to get a better understanding of neural nets.  The 
  - I overloaded the memory with the 272,000 images. The script got through about 14,000 images before crashing with the message "Killed" given.
  - Need to set up Spark to handle the memory problems.
  - Need to reshape the vectors so that they are in the correct format before running the net script.  Currently I am reshaping the vectors immediately before creating the net.
+
+### Things to try
+ - Only include images from prime trading hours.
+ - Only graph closing ticks, or some other variety.
+ - Change number of ticks being graphed.
+ 
