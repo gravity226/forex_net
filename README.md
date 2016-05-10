@@ -25,3 +25,4 @@ I am working on this project to get a better understanding of neural nets.  The 
  - Only include images from prime trading hours.
  - Only graph closing ticks, or some other variety.
  - Change number of ticks being graphed.
+ - Allow for overlap in ticks on each graph. Currently no graph data overlaps any other graph.
