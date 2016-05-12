@@ -1,11 +1,11 @@
 import math
 import multiprocessing
 import itertools
-from timeit import Timer
+# from timeit import Timer
 
-import matplotlib
-matplotlib.use('agg')
-import matplotlib.pyplot as plt
+# import matplotlib
+# matplotlib.use('agg')
+# import matplotlib.pyplot as plt
 
 import pandas as pd
 import numpy as np
@@ -51,7 +51,7 @@ def check_prime(n): # n = lower range
 
     # file_list.append([path, filename, vect, r, dif, df.ix[r[1]+1].close, 1 if dif > 0 else -1 if dif < 0 else 0])
 
-    row = [path, filename, reshape_vect.tolist(), r, dif, df.ix[r[1]+1].close, 1 if dif > 0 else -1 if dif < 0 else 0]
+    row = [path, filename, reshape_vect, r, dif, df.ix[r[1]+1].close, 1 if dif > 0 else -1 if dif < 0 else 0]
 
     d = {    'pair':        row[0],
              'filename':    row[1],
@@ -73,7 +73,7 @@ def primes_parallel():
     # primes = [p for p in itertools.compress(number_range, output)]
     # print len(primes), primes[:10], primes[-10:]
 
-    pool = multiprocessing.Pool(32)
+    pool = multiprocessing.Pool(40)
     pool.Process.daemon = True
 
     # num_times = 2
@@ -91,7 +91,7 @@ if __name__ == "__main__":
     # t = Timer(lambda: primes_parallel())
     # print "Completed parallel in %s seconds." % t.timeit(1)
 
-    plt.clf()
+    # plt.clf()
 
     time = range(86028)
     file_list = []

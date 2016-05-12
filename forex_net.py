@@ -18,6 +18,8 @@ from sklearn.cross_validation import train_test_split
 
 import json
 
+import pyspark as ps
+
 def get_data():
     # files = [   "AUDJPY_20110606_01-00-00.json",	"GBPJPY_20100819_19-00-00.json",
     #             "AUDJPY_20130822_12-00-00.json",	"GBPJPY_20140923_11-00-00.json",
@@ -95,10 +97,52 @@ def get_data():
 
     return x_new, y
 
+def get_json(f):
+    with open('jsons/' + f) as data_file:
+        try:
+            return json.load(data_file)
+        except:
+            print "None for", f
+            pass
+
+def check_json(f):
+    with open('jsons/' + f) as data_file:
+        try:
+            j = json.load(data_file)
+            return 1
+        except:
+            print "None for", f
+            return 0
 
 if __name__ == '__main__':
-    X, y = get_data()
-    X_train, X_test, y_train, y_test = train_test_split(X, y)
+    # X, y = get_data()
+    # X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+    print "Start spark..."
+    sc = ps.SparkContext('local[32]')
+
+    print "Check for working files..."
+    df = pd.read_csv('json_files.csv')
+    files = list(df['0'])
+    del df  # try to save some memory
+
+    # some of the files don't load correctly...?
+    # easy check before running spark
+    working_files = [ f for f in files if check_json(f) ]
+
+    # start processing data
+    docs = sc.parallelize(working_files)
+    data = docs.map(lambda f: get_json(f))
+
+    # creating a tuple of (X, y)
+    Xy_data = data.map(lambda line: (line['vector'], line['class']))
+
+    # split data into train and test
+    train, test = Xy_data.randomSplit([0.8, 0.2], seed=0)
+
+    # Prep for modeling
+    X_train, y_train = np.array(train.map(lambda line: line[0]).collect()), np.array(train.map(lambda line: line[1]).collect())
+    X_test, y_test = np.array(test.map(lambda line: line[0]).collect()), np.array(test.map(lambda line: line[1]).collect())
 
     print "create net..."
     batch_size = 32
