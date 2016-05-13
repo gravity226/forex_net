@@ -60,7 +60,7 @@ def check_prime(n): # n = lower range
              'dif':         row[4],
              'close':       row[5],
              'class':       row[6]   }
-    with open('jsons' + filename + '.json', 'w') as data_file:
+    with open('jsons/' + filename + '.json', 'w') as data_file:
         data = json.dump(d, data_file)
 
     print path, n

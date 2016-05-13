@@ -128,19 +128,20 @@ if __name__ == '__main__':
 
     # some of the files don't load correctly...?
     # easy check before running spark
-    working_files = [ f for f in files if check_json(f) ]
+    working_files = [ f for f in files[:20] if check_json(f) ]
 
     # start processing data
     docs = sc.parallelize(working_files)
     data = docs.map(lambda f: get_json(f))
 
     # creating a tuple of (X, y)
-    Xy_data = data.map(lambda line: (line['vector'], line['class']))
+    Xy_data = data.map(lambda line: (line['vector'][0], line['class']))
 
     # split data into train and test
     train, test = Xy_data.randomSplit([0.8, 0.2], seed=0)
 
     # Prep for modeling
+    X_train, y_train = train.map(lambda line: line[0]), np.array(train.map(lambda line: line[1]).collect())
     X_train, y_train = np.array(train.map(lambda line: line[0]).collect()), np.array(train.map(lambda line: line[1]).collect())
     X_test, y_test = np.array(test.map(lambda line: line[0]).collect()), np.array(test.map(lambda line: line[1]).collect())
 
