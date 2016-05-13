@@ -17,6 +17,10 @@ Second attempt at building this net.  The problem is the instance can't handle t
 
 ### Results
  - Not great...
+ - Based on 272,564 images
+ - Each image contains 5 ticks of hourly open, close, high, low data
+ - No images contain overlapping data / no two images share an hourly tick
+ - image sizes are 40 x 40px
 <br/>
 <br/>
  Epoch 0<br/>
