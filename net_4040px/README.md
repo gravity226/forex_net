@@ -11,5 +11,6 @@ Second attempt at building this net.  The problem is the instance can't handle t
 <img src="https://raw.githubusercontent.com/gravity226/forex_net/master/imgs/EURUSD_20010103_00-00-00.png" width="320" height="240">
 
  - Pictures are much smaller now :)
+ - The json vector files are less than a 1/10 the size of the original files.  Hopefully this will solve the memory problems I am having.
 
 <img src="https://github.com/gravity226/forex_net/blob/master/net_4040px/imgs/AUDJPY_20010103_00-00-00.png">
