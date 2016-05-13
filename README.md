@@ -20,6 +20,9 @@ I am working on this project to get a better understanding of neural nets.  The 
  - I overloaded the memory with the 272,000 images. The script got through about 14,000 images before crashing with the message "Killed" given.
  - Need to set up Spark to handle the memory problems.
  - Need to reshape the vectors so that they are in the correct format before running the net script.  Currently I am reshaping the vectors immediately before creating the net.
+ - UPDATE....
+ - Running Spark .collect() completely crashed the instance.  Had reboot the instance from the AWS console.  Not sure how to feed bits of the dataset into the net one piece at a time.  
+ - Changing my approach...  Check out the net_4040px folder.
 
 ### Things to try
  - Only include images from prime trading hours.
