@@ -21,7 +21,7 @@ import json
 def get_data(files, n):
 
     count = n
-    print "load files..."
+    # print "load files..."
     for f in files:
         # print f
         data = {}
@@ -98,10 +98,17 @@ if __name__ == '__main__':
     for e in xrange(nb_epoch):
         acc = []
         loss = []
+
+        # loading ticks
+        ticks = 0
         print ''
         print "-----------------------"
         print "Epoch", e
         for n in xrange(0, len(files), batch_size):
+            if n >= float(ticks) / len(files):
+                print "X=",
+                ticks += 10
+
             X = []
             y = []
             if n + batch_size < len(files):
@@ -109,7 +116,7 @@ if __name__ == '__main__':
             else:
                 X, y = get_data(files[n:], n)
 
-            X_train, X_test, y_train, y_test = train_test_split(X, y)
+            X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
             X_train = np.array(X_train)
             X_test = np.array(X_test)
             y_train = np.array(y_train)
@@ -124,8 +131,30 @@ if __name__ == '__main__':
 
             acc.append(a)
             loss.append(l)
+        print ''
         print "Val_loss", (sum(loss) / len(loss))
         print "Val_acc", (sum(acc) / len(acc))
+
+    # with random batch draws....
+    # -------
+    # Epoch 1
+    # Val_loss 0.889370705837
+    # Val_acc 0.479363625794
+
+    # -------
+    # Epoch 2
+    # Val_loss 0.892368757026
+    # Val_acc 0.475923728484
+
+    # -------
+    # Epoch 3
+    # Val_loss 0.889994844194
+    # Val_acc 0.478411244931
+
+    # -------
+    # Epoch 4
+    # Val_loss 0.889986013536
+    # Val_acc 0.484586393495
 
 
     # X_train = X_train.astype('float32')
