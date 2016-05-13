@@ -20,7 +20,7 @@ I am working on this project to get a better understanding of neural nets.  The 
 #### [Net4040](https://github.com/gravity226/forex_net/tree/master/net_4040px)
  - Best validation accuracy is about %48...
 
-#### [Net4080_10](https://github.com/gravity226/forex_net/tree/master/net_4040px)
+#### [Net4080_10](https://github.com/gravity226/forex_net/tree/master/net_4080px_10t)
  - Currently training
 
 
