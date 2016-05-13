@@ -11,4 +11,4 @@ Third attempt at building this net. Going to use 10 ticks in every image and wid
  - Pictures are much smaller now :)
  - The json vector files are less than a 1/10 the size of the original files.  Hopefully this will solve the memory problems I am having.
 
-<img src="https://github.com/gravity226/forex_net/blob/master/net_4040px/imgs/AUDJPY_20010103_00-00-00.png">
+<img src="https://github.com/gravity226/forex_net/blob/master/net_4080px_10t/imgs/GBPUSD_20010103_10-00-00.png">
