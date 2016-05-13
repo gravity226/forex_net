@@ -1,4 +1,4 @@
-# Forex Net
+# Net_4040px
 ### Summary
 Second attempt at building this net.  The problem is the instance can't handle the size of the 272,000 images together.
 
@@ -13,20 +13,3 @@ Second attempt at building this net.  The problem is the instance can't handle t
  - Pictures are much smaller now :)
 
 <img src="https://github.com/gravity226/forex_net/blob/master/net_4040px/imgs/AUDJPY_20010103_00-00-00.png">
-
-### Building the Net
- - Transferred the vectors to a GPU AWS instance to begin training the net.
- - Copied the net framework from the cifar10_cnn Keras Net (this example utilizes RGB color)
- - Tried running the net as a classifier; predicting whether the market will go up, down, or stay the same in the next tick.
- - I am hoping that this will give me an indiction of whether this idea has any potential.
-
-### Current Issues
- - I overloaded the memory with the 272,000 images. The script got through about 14,000 images before crashing with the message "Killed" given.
- - Need to set up Spark to handle the memory problems.
- - Need to reshape the vectors so that they are in the correct format before running the net script.  Currently I am reshaping the vectors immediately before creating the net.
-
-### Things to try
- - Only include images from prime trading hours.
- - Only graph closing ticks, or some other variety.
- - Change number of ticks being graphed.
- - Allow for overlap in ticks on each graph. Currently no graph data overlaps any other graph.
