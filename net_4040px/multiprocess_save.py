@@ -21,15 +21,15 @@ df = pd.DataFrame()
 
 def check_prime(n): # n = lower range
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(.4,.4))
     fig.patch.set_visible(False)
     ax.axis('off')
     r = (n, n+ticks-1)
     # n:n+ticks-1 ----- This will give you exactly n ticks.
-    ax.plot(range(ticks), df.ix[r[0]: r[1]].close.values.tolist(), lw=7, color='b', alpha=.5)
-    ax.plot(range(ticks), df.ix[r[0]: r[1]].open.values.tolist(), lw=7, color='g', alpha=.5)
-    ax.plot(range(ticks), df.ix[r[0]: r[1]].high.values.tolist(), lw=7, color='r', alpha=.5)
-    ax.plot(range(ticks), df.ix[r[0]: r[1]].low.values.tolist(), lw=7, color='k', alpha=.5)
+    ax.plot(range(ticks), df.ix[r[0]: r[1]].close.values.tolist(), lw=2, color='b', alpha=.5)
+    ax.plot(range(ticks), df.ix[r[0]: r[1]].open.values.tolist(), lw=2, color='g', alpha=.5)
+    ax.plot(range(ticks), df.ix[r[0]: r[1]].high.values.tolist(), lw=2, color='r', alpha=.5)
+    ax.plot(range(ticks), df.ix[r[0]: r[1]].low.values.tolist(), lw=2, color='k', alpha=.5)
 
     filename = path + '_' + str(df.ix[n].date) + '_' + str(df.ix[n].time).replace(':', '-')
     plt.savefig('imgs/' + filename + '.png')
@@ -46,12 +46,23 @@ def check_prime(n): # n = lower range
     6. classification [1, 0, -1] 1 meaning a gain from 5 to 6, 0 meaning no gain or loss
     '''
     vect = imread('imgs/' + filename + '.png')
-    resize_vect = resize(vect, (120,160))
     dif = df.ix[r[1]+1].close - df.ix[r[1]].close
 
     # file_list.append([path, filename, vect, r, dif, df.ix[r[1]+1].close, 1 if dif > 0 else -1 if dif < 0 else 0])
 
-    row = [path, filename, resize_vect.tolist(), r, dif, df.ix[r[1]+1].close, 1 if dif > 0 else -1 if dif < 0 else 0]
+    reshape_vect = []   # Need it in shape = (n, 3, R, G, B) for net
+    temp_colors = []
+    for color in xrange(3):   # need to change into a shape = (3, 120, 160); 3 = (r, g, b)
+        temp_rows = []
+        for row in vect:     # row.shape = (160, 4)
+            temp_cols = []
+            for col in row:
+                temp_cols.append(float(col[color])/255)
+            temp_rows.append(temp_cols)
+        temp_colors.append(temp_rows)
+    reshape_vect.append(temp_colors)
+
+    row = [path, filename, reshape_vect[0], r, dif, df.ix[r[1]+1].close, 1 if dif > 0 else -1 if dif < 0 else 0]
 
     d = {    'pair':        row[0],
              'filename':    row[1],
@@ -67,31 +78,6 @@ def check_prime(n): # n = lower range
     return 'jsons/' + filename + '.json'
 
 
-def primes_sequential():
-    ticks = 5
-
-    # num_times = (len(df) - ticks - 1) / ticks  # always need to have 1 extra space for the predicted value
-
-    num_times = 5 # number of times to run the img creater
-
-
-    for n in range(0, num_times * ticks, ticks):
-        fig, ax = plt.subplots()
-        fig.patch.set_visible(False)
-        ax.axis('off')
-        # n:n+ticks-1 ----- This will give you exactly n ticks.
-        ax.plot(range(ticks), df.ix[n:n+ticks-1].close.values.tolist(), lw=25, color='b', alpha=.5)
-        ax.plot(range(ticks), df.ix[n:n+ticks-1].open.values.tolist(), lw=25, color='g', alpha=.5)
-        ax.plot(range(ticks), df.ix[n:n+ticks-1].high.values.tolist(), lw=25, color='r', alpha=.5)
-        ax.plot(range(ticks), df.ix[n:n+ticks-1].low.values.tolist(), lw=25, color='k', alpha=.5)
-
-        path = 'EURUSD'
-        filename = 'imgs/' + path + str(df.ix[n].date) + '_' + str(df.ix[n].time).replace(':', '-') + '.png'
-        plt.savefig(filename)
-        plt.clf()
-        plt.close()
-
-
 def primes_parallel():
     # number_range = xrange(100000000, 101000000)
     # pool = multiprocessing.Pool(4)  # for each core
@@ -99,11 +85,13 @@ def primes_parallel():
     # primes = [p for p in itertools.compress(number_range, output)]
     # print len(primes), primes[:10], primes[-10:]
 
-    pool = multiprocessing.Pool(40)
+    pool = multiprocessing.Pool(4)
     pool.Process.daemon = True
 
     # num_times = 2
     num_times = (len(df) - ticks - 2) / ticks  # always need to have 1 extra space for the predicted value
+
+    num_times = 3 # Delete this before sending to AWS
 
     img_range = range(0, num_times * ticks, ticks)
 
@@ -131,82 +119,82 @@ if __name__ == "__main__":
     # u'<TICKER>', u'<DATE>', u'<TIME>', u'<OPEN>', u'<LOW>', u'<HIGH>', u'<CLOSE>']
 
     path = 'EURUSD'
-    df = pd.read_csv('data/EURUSD_hour.csv')
+    df = pd.read_csv('../data/EURUSD_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'AUDJPY'
-    df = pd.read_csv('data/AUDJPY_hour.csv')
+    df = pd.read_csv('../data/AUDJPY_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'AUDUSD'
-    df = pd.read_csv('data/AUDUSD_hour.csv')
+    df = pd.read_csv('../data/AUDUSD_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'CHFJPY'
-    df = pd.read_csv('data/CHFJPY_hour.csv')
+    df = pd.read_csv('../data/CHFJPY_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'EURCHF'
-    df = pd.read_csv('data/EURCHF_hour.csv')
+    df = pd.read_csv('../data/EURCHF_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'EURGBP'
-    df = pd.read_csv('data/EURGBP_hour.csv')
+    df = pd.read_csv('../data/EURGBP_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'EURJPY'
-    df = pd.read_csv('data/EURJPY_hour.csv')
+    df = pd.read_csv('../data/EURJPY_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'GBPCHF'
-    df = pd.read_csv('data/GBPCHF_hour.csv')
+    df = pd.read_csv('../data/GBPCHF_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'GBPJPY'
-    df = pd.read_csv('data/GBPJPY_hour.csv')
+    df = pd.read_csv('../data/GBPJPY_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'GBPUSD'
-    df = pd.read_csv('data/GBPUSD_hour.csv')
+    df = pd.read_csv('../data/GBPUSD_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'NZDUSD'
-    df = pd.read_csv('data/NZDUSD_hour.csv')
+    df = pd.read_csv('../data/NZDUSD_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'USDCAD'
-    df = pd.read_csv('data/USDCAD_hour.csv')
+    df = pd.read_csv('../data/USDCAD_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'USDCHF'
-    df = pd.read_csv('data/USDCHF_hour.csv')
+    df = pd.read_csv('../data/USDCHF_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'USDJPY'
-    df = pd.read_csv('data/USDJPY_hour.csv')
+    df = pd.read_csv('../data/USDJPY_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'XAGUSD'
-    df = pd.read_csv('data/XAGUSD_hour.csv')
+    df = pd.read_csv('../data/XAGUSD_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
     path = 'XAUUSD'
-    df = pd.read_csv('data/XAUUSD_hour.csv')
+    df = pd.read_csv('../data/XAUUSD_hour.csv')
     df.columns = ['sym', 'date', 'time', 'open', 'low', 'high', 'close']
     file_list += primes_parallel()
 
