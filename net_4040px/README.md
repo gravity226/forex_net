@@ -42,3 +42,6 @@ Second attempt at building this net.  The problem is the instance can't handle t
  Epoch 4<br/>
  Val_loss 0.888639910972<br/>
  Val_acc 0.479168471781<br/>
+
+### Next steps
+ - Try with more ticks and a wider image
