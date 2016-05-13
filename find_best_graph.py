@@ -17,7 +17,7 @@ if __name__ == '__main__':
     # 2. see how much it changed
     # 3. get and average change
 
-    fig, ax = plt.subplots(figsize=(.5,.5))
+    fig, ax = plt.subplots(figsize=(.4,.4))
     fig.patch.set_visible(False)
     ax.axis('off')
     ax.plot(range(5), df.close.values[7000:7005], lw=2, color='b', alpha=.5)
