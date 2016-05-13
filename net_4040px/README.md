@@ -14,3 +14,31 @@ Second attempt at building this net.  The problem is the instance can't handle t
  - The json vector files are less than a 1/10 the size of the original files.  Hopefully this will solve the memory problems I am having.
 
 <img src="https://github.com/gravity226/forex_net/blob/master/net_4040px/imgs/AUDJPY_20010103_00-00-00.png">
+
+### Results
+ - Not great...
+<br/>
+<br/>
+ Epoch 0<br/>
+ Val_loss 0.898417556461<br/>
+ Val_acc 0.471739901837<br/>
+<br/>
+ -------<br/>
+ Epoch 1<br/>
+ Val_loss 0.891484757701<br/>
+ Val_acc 0.47570062224<br/>
+<br/>
+ -------<br/>
+ Epoch 2<br/>
+ Val_loss 0.887869497795<br/>
+ Val_acc 0.480078248423<br/>
+<br/>
+ -------<br/>
+ Epoch 3<br/>
+ Val_loss 0.889913597605<br/>
+ Val_acc 0.478520459745<br/>
+<br/>
+ -------<br/>
+ Epoch 4<br/>
+ Val_loss 0.888639910972<br/>
+ Val_acc 0.479168471781<br/>

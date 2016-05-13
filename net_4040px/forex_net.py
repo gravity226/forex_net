@@ -99,15 +99,10 @@ if __name__ == '__main__':
         acc = []
         loss = []
 
-        # loading ticks
-        ticks = 0
         print ''
         print "-----------------------"
         print "Epoch", e
         for n in xrange(0, len(files), batch_size):
-            if n >= float(ticks) / len(files):
-                print "X=",
-                ticks += 10
 
             X = []
             y = []
@@ -156,6 +151,32 @@ if __name__ == '__main__':
     # Val_loss 0.889986013536
     # Val_acc 0.484586393495
 
+
+    # without random batch draws....
+    # -------
+Epoch 0
+Val_loss 0.898417556461
+Val_acc 0.471739901837
+
+-------
+Epoch 1
+Val_loss 0.891484757701
+Val_acc 0.47570062224
+
+-------
+Epoch 2
+Val_loss 0.887869497795
+Val_acc 0.480078248423
+
+-------
+Epoch 3
+Val_loss 0.889913597605
+Val_acc 0.478520459745
+
+-------
+Epoch 4
+Val_loss 0.888639910972
+Val_acc 0.479168471781
 
     # X_train = X_train.astype('float32')
     # X_test = X_test.astype('float32')
