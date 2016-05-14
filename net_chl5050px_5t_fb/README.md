@@ -1,19 +1,19 @@
-# Net_50100px_10t
+# Net_chl5050px_5t_fb
 ### Summary
-Third attempt at building this net. Going to use 10 ticks in every image and widen the image to 50 x 100px. Hopefully this will help?
+Fourth attempt at building this net. Using 5 ticks with close, high, and low data.  Also adding the fill_between to git the net more to learn on.  
 
 # Workflow
 ### Creating Images and Vectors
- - Change the images to 50 x 100px with 10 ticks
+ - Change the images to 50 x 50px with close, high and low data.
 
-<img src="https://github.com/gravity226/forex_net/blob/master/net_4080px_10t/imgs/GBPUSD_20010103_10-00-00.png">
+<img src="https://github.com/gravity226/forex_net/blob/master/net_chl5050px_5t_fb/imgs/AUDUSD_20010103_05-00-00.png">
 
 ### Results
  - Not great...
- - Based on 136,270 images
- - Each image contains 10 ticks of hourly open, close, high, low data
+ - Based on 272,564 images
+ - Each image contains 5 ticks of hourly close, high, and low data
  - No images contain overlapping data / no two images share an hourly tick
- - image sizes are 50 x 100px
+ - image sizes are 50 x 50px
  - Each batch fed into the net contains 1000 images
 <br/>
 <br/>
@@ -65,4 +65,3 @@ Third attempt at building this net. Going to use 10 ticks in every image and wid
  Epoch 9<br/>
  Val_loss 0.882037024577<br/>
  Val_acc 0.488750267542<br/>
- 
