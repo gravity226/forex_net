@@ -18,12 +18,15 @@ I am working on this project to get a better understanding of neural nets.  The 
 
 ### Working Classifier nets
 #### [Net_4040px](https://github.com/gravity226/forex_net/tree/master/net_4040px)
+ - Using 40x40px images; 5 ticks; open, close, high, and low data.
  - Best validation accuracy is about %48...
 
 #### [Net_4080px_10t](https://github.com/gravity226/forex_net/tree/master/net_4080px_10t)
+ - Using 50x100px images; 10 ticks; open, close, high, and low data.
  - Best validation accuracy is about %48...  Not much difference.
 
 #### [net_c5050px_5t](https://github.com/gravity226/forex_net/tree/master/net_c5050px_5t)
+ - Using 50x50px images; 5 ticks; close data only.
  - Currently training
 
 ### Things to try
