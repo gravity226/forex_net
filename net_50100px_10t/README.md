@@ -1,6 +1,6 @@
-# Net_4080px_10t
+# Net_50100px_10t
 ### Summary
-Third attempt at building this net. Going to use 10 ticks in every image and widen the image to 40 x 80px. Hopefully this will help?
+Third attempt at building this net. Going to use 10 ticks in every image and widen the image to 50 x 100px. Hopefully this will help?
 
 # Workflow
 ### Creating Images and Vectors
