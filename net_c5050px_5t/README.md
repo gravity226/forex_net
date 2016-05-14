@@ -1,4 +1,4 @@
-# Net_4080px_10t
+# net_c5050px_5t
 ### Summary
 Fourth attempt at building this net. Using 5 ticks with only the close data.
 
