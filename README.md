@@ -17,12 +17,14 @@ I am working on this project to get a better understanding of neural nets.  The 
  - I am hoping that this will give me an indiction of whether this idea has any potential.
 
 ### Working Classifier nets
-#### [Net4040](https://github.com/gravity226/forex_net/tree/master/net_4040px)
+#### [Net_4040px](https://github.com/gravity226/forex_net/tree/master/net_4040px)
  - Best validation accuracy is about %48...
 
-#### [Net4080_10t](https://github.com/gravity226/forex_net/tree/master/net_4080px_10t)
- - Currently training
+#### [Net_4080px_10t](https://github.com/gravity226/forex_net/tree/master/net_4080px_10t)
+ - Best validation accuracy is about %48...  Not much difference.
 
+#### [net_c5050px_5t](https://github.com/gravity226/forex_net/tree/master/net_c5050px_5t)
+ - Currently training
 
 ### Things to try
  - Only include images from prime trading hours.
