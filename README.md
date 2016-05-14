@@ -25,9 +25,9 @@ I am working on this project to get a better understanding of neural nets.  The 
  - Using 50x100px images; 10 ticks; open, close, high, and low data.
  - Best validation accuracy is about %48...  Not much difference.
 
-#### [net_c5050px_5t](https://github.com/gravity226/forex_net/tree/master/net_c5050px_5t)
+#### [Net_c5050px_5t](https://github.com/gravity226/forex_net/tree/master/net_c5050px_5t)
  - Using 50x50px images; 5 ticks; close data only.
- - Currently training
+ - Best validation accuracy is about %48...  Again, not much difference...
 
 ### Things to try
  - Only include images from prime trading hours.
