@@ -17,13 +17,13 @@ if __name__ == '__main__':
     # 2. see how much it changed
     # 3. get and average change
 
-    fig, ax = plt.subplots(figsize=(1, .5))
+    fig, ax = plt.subplots(figsize=(.5, .5))
     fig.patch.set_visible(False)
     ax.axis('off')
-    ax.plot(range(10), df.close.values[7000:7010], lw=1, color='b', alpha=.5)
-    ax.plot(range(10), df.open.values[7000:7010], lw=1, color='g', alpha=.5)
-    ax.plot(range(10), df.low.values[7000:7010], lw=1, color='r', alpha=.5)
-    ax.plot(range(10), df.high.values[7000:7010], lw=1, color='k', alpha=.5)
+    ax.plot(range(5), df.close.values[7000:7005], lw=2, color='b', alpha=1)
+    # ax.plot(range(10), df.open.values[7000:7010], lw=1, color='g', alpha=.5)
+    # ax.plot(range(10), df.low.values[7000:7010], lw=1, color='r', alpha=.5)
+    # ax.plot(range(10), df.high.values[7000:7010], lw=1, color='k', alpha=.5)
 
     plt.savefig('smaller_graph10.png')
     plt.show()
