@@ -18,29 +18,51 @@ Third attempt at building this net. Going to use 10 ticks in every image and wid
 <br/>
 <br/>
  Epoch 0<br/>
- Val_loss 0.921941109817<br/>
- Val_acc 0.463531130422<br/>
+ Val_loss 0.896974503121<br/>
+ Val_acc 0.479199128164<br/>
 
+ -----------------------<br/>
  Epoch 1<br/>
- Val_loss 0.887297276163<br/>
- Val_acc 0.475725203861<br/>
+ Val_loss 0.887065941379<br/>
+ Val_acc 0.482546438555<br/>
 
+ -----------------------<br/>
  Epoch 2<br/>
- Val_loss 0.886245138889<br/>
- Val_acc 0.478469728771<br/>
+ Val_loss 0.884792789216<br/>
+ Val_acc 0.48448850471<br/>
 
+ -----------------------<br/>
  Epoch 3<br/>
- Val_loss 0.885666501783<br/>
- Val_acc 0.479929584004<br/>
+ Val_loss 0.884615197723<br/>
+ Val_acc 0.484105578436<br/>
 
+ -----------------------<br/>
  Epoch 4<br/>
- Val_loss 0.885022032<br/>
- Val_acc 0.482595965701<br/>
+ Val_loss 0.883717042623<br/>
+ Val_acc 0.48563936451<br/>
 
+ -----------------------<br/>
  Epoch 5<br/>
- Val_loss 0.884365815316<br/>
- Val_acc 0.481165307173<br/>
+ Val_loss 0.88313270685<br/>
+ Val_acc 0.487125868217<br/>
 
+ -----------------------<br/>
  Epoch 6<br/>
- Val_loss 0.883893987558<br/>
- Val_acc 0.481787893568<br/>
+ Val_loss 0.882755677779<br/>
+ Val_acc 0.488086249802<br/>
+
+ -----------------------<br/>
+ Epoch 7<br/>
+ Val_loss 0.882460864909<br/>
+ Val_acc 0.489206454529<br/>
+
+ -----------------------<br/>
+ Epoch 8<br/>
+ Val_loss 0.882262820508<br/>
+ Val_acc 0.488481854617<br/>
+
+ -----------------------<br/>
+ Epoch 9<br/>
+ Val_loss 0.882037024577<br/>
+ Val_acc 0.488750267542<br/>
+ 
