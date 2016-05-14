@@ -4,7 +4,7 @@ Third attempt at building this net. Going to use 10 ticks in every image and wid
 
 # Workflow
 ### Creating Images and Vectors
- - Change the images to 40 x 80px with 10 ticks
+ - Change the images to 50 x 100px with 10 ticks
 
 <img src="https://github.com/gravity226/forex_net/blob/master/net_4080px_10t/imgs/GBPUSD_20010103_10-00-00.png">
 
@@ -44,4 +44,3 @@ Third attempt at building this net. Going to use 10 ticks in every image and wid
  Epoch 6<br/>
  Val_loss 0.883893987558<br/>
  Val_acc 0.481787893568<br/>
- 
