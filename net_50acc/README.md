@@ -1,4 +1,4 @@
-# Net_chl5050px_5t_fb
+# Net_50acc
 ### Summary
 Changed the structure of the net and batch size.
 
