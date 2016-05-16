@@ -6,7 +6,7 @@ Changed the structure of the net and batch size.
 ### Creating Images and Vectors
  - Images are 50 x 50px with close, high and low data.
 
-<img src="https://github.com/gravity226/forex_net/blob/master/net_chl5050px_5t_fb/imgs/AUDUSD_20010103_05-00-00.png" height="100" width="100">
+<img src="https://github.com/gravity226/forex_net/blob/master/net_chl5050px_5t_fb/imgs/AUDUSD_20010103_05-00-00.png">
 
 ### Results
  - Not great...
