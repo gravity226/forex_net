@@ -5,6 +5,7 @@ Changed the structure of the net, batch size and added more to the image.
 # Workflow
 ### Creating Images and Vectors
  - Images are 50 x 50px with close, high and low data.
+ - Kind of looks like abstract art :D
 
 <img src="https://github.com/gravity226/forex_net/blob/master/net_bg5050px/graph_5050_bg.png">
 
