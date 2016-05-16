@@ -17,6 +17,22 @@ I am working on this project to get a better understanding of neural nets.  The 
  - I am hoping that this will give me an indiction of whether this idea has any potential.
 
 ### Working Classifier nets
+#### [Net_bg5050px](https://github.com/gravity226/forex_net/tree/master/net_bg5050px)
+ - Using 50x50px images; 5 ticks; close, high, and low data.
+ - Using fill_between to add more content to each image.
+ - Using a unique background color for each currency.
+ - Best validation accuracy is about %50.01...
+
+#### [Net_50acc](https://github.com/gravity226/forex_net/tree/master/net_50acc)
+ - Using 50x50px images; 5 ticks; close, high, and low data.
+ - Using fill_between to add more content to each image.
+ - Best validation accuracy is about %50.0...
+
+#### [Net_chl5050px_5t_fb](https://github.com/gravity226/forex_net/tree/master/net_chl5050px_5t_fb)
+ - Using 50x50px images; 5 ticks; close, high, and low data.
+ - Using fill_between to add more content to each image.
+ - Best validation accuracy is about %48.9...
+
 #### [Net_4040px](https://github.com/gravity226/forex_net/tree/master/net_4040px)
  - Using 40x40px images; 5 ticks; open, close, high, and low data.
  - Best validation accuracy is about %48...
@@ -28,16 +44,6 @@ I am working on this project to get a better understanding of neural nets.  The 
 #### [Net_c5050px_5t](https://github.com/gravity226/forex_net/tree/master/net_c5050px_5t)
  - Using 50x50px images; 5 ticks; close data only.
  - Best validation accuracy is about %48...  Again, not much difference...
-
-#### [Net_chl5050px_5t_fb](https://github.com/gravity226/forex_net/tree/master/net_chl5050px_5t_fb)
- - Using 50x50px images; 5 ticks; close, high, and low data.
- - Using fill_between to add more content to each image.
- - Best validation accuracy is about %48.9...
-
-#### [Net_50acc](https://github.com/gravity226/forex_net/tree/master/net_50acc)
- - Using 50x50px images; 5 ticks; close, high, and low data.
- - Using fill_between to add more content to each image.
- - Best validation accuracy is about %50.0...
 
 ### Things to try
  - Only include images from prime trading hours.
